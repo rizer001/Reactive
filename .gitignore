@@ -52,3 +52,12 @@ local.properties
 
 # Windows
 Thumbs.db
+
+# ----- Jar/ directory: distributed paperclip binaries -----
+# Ignore everything inside Jar/ by default, but force-track the actual
+# paperclip jar + its checksum so users can download straight from GitHub
+# (web UI / raw URL) without using Releases.
+Jar/*
+!Jar/README.md
+!Jar/*.jar
+!Jar/*.sha256
