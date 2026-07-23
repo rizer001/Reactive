@@ -20,7 +20,6 @@ build/
 
 # Paperweight - generated and cached files
 paperweight-cache/
-.mcache/
 
 # Generated patches from Paper pipeline (regenerated on each build)
 paper-api/
@@ -35,6 +34,21 @@ run/
 
 # Build data
 build-data/dev-imports.txt
+
+# Java / Gradle outputs and logs to ignore
+*.class
+*.jar
+*.war
+*.hprof
+*.log
+hs_err_pid*.log
+logs/
+
+# Kotlin
+.kotlin/
+
+# Gradle local secrets
+local.properties
 
 # Windows
 Thumbs.db
