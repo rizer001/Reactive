@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     # Run workflow only on main repo
-    if: ${{ github.repository == 'Winds-Studio/Leaf' }}
+    if: ${{ github.repository == 'rizer001/Reactive' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

@@ -12,30 +12,30 @@ plugins {
 }
 
 if (!file(".git").exists()) {
-    // Leaf start - project setup
+    // Reactive start - project setup
     val errorText = """
         
         =====================[ ERROR ]=====================
          The Leaf project directory is not a properly cloned Git repository.
          
-         In order to build Leaf from source you must clone
-         the Leaf repository using Git, not download a code
+         In order to build Reactive from source you must clone
+         the Reactive repository using Git, not download a code
          zip from GitHub.
          
-         Built Leaf jars are available for download at
-         https://www.leafmc.one/download
+         Built Reactive jars are available for download at
+         https://github.com/rizer001/Reactive/releases
          
          See https://github.com/PaperMC/Paper/blob/main/CONTRIBUTING.md
          for further information on building and modifying Paper forks.
         ===================================================
     """.trimIndent()
-    // Leaf end - project setup
+    // Reactive end - project setup
     error(errorText)
 }
 
-rootProject.name = "leaf"
+rootProject.name = "reactive"
 
-for (name in listOf("leaf-api", "leaf-server")) {
+for (name in listOf("reactive-api", "reactive-server")) {
     val projName = name.lowercase(Locale.ENGLISH)
     include(projName)
 }

@@ -7,7 +7,7 @@ plugins {
 }
 
 val paperMavenPublicUrl = "https://repo.papermc.io/repository/maven-public/"
-val leafMavenPublicUrl = "https://maven.leafmc.one/snapshots/"
+val reactiveMavenPublicUrl = "https://maven.leafmc.one/snapshots/"
 
 subprojects {
     apply(plugin = "java-library")
@@ -22,7 +22,7 @@ subprojects {
     repositories {
         mavenCentral()
         maven(paperMavenPublicUrl)
-        maven(leafMavenPublicUrl)
+        maven(reactiveMavenPublicUrl)
     }
 
     tasks.withType<JavaCompile>().configureEach {
@@ -47,8 +47,8 @@ subprojects {
 
     extensions.configure<PublishingExtension> {
         repositories {
-            maven(leafMavenPublicUrl) {
-                name = "leaf"
+            maven(reactiveMavenPublicUrl) {
+                name = "reactive"
 
                 credentials.username = System.getenv("REPO_USER")
                 credentials.password = System.getenv("REPO_PASSWORD")
@@ -63,18 +63,18 @@ paperweight {
 
         patchFile {
             path = "paper-server/build.gradle.kts"
-            outputFile = file("leaf-server/build.gradle.kts")
-            patchFile = file("leaf-server/build.gradle.kts.patch")
+            outputFile = file("reactive-server/build.gradle.kts")
+            patchFile = file("reactive-server/build.gradle.kts.patch")
         }
         patchFile {
             path = "paper-api/build.gradle.kts"
-            outputFile = file("leaf-api/build.gradle.kts")
-            patchFile = file("leaf-api/build.gradle.kts.patch")
+            outputFile = file("reactive-api/build.gradle.kts")
+            patchFile = file("reactive-api/build.gradle.kts.patch")
         }
         patchDir("paperApi") {
             upstreamPath = "paper-api"
             excludes = setOf("build.gradle.kts")
-            patchesDir = file("leaf-api/paper-patches")
+            patchesDir = file("reactive-api/paper-patches")
             outputDir = file("paper-api")
         }
     }

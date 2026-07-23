@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     # Run workflow only on main repo
-    if: ${{ github.repository == 'Winds-Studio/Leaf' }}
+    if: ${{ github.repository == 'rizer001/Reactive' }}
     runs-on: blacksmith-8vcpu-ubuntu-2404
     env:
       MC_VERSION: "26.2"

@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     # Run workflow only on main repo
-    if: ${{ github.repository == 'Winds-Studio/Leaf' }}
+    if: ${{ github.repository == 'rizer001/Reactive' }}
     runs-on: blacksmith-8vcpu-ubuntu-2404
     env:
       MC_VERSION: "26.2"
@@ -84,13 +84,13 @@ jobs:
             BRANCH="${{ github.ref_name }}"
             REPO_DIR="/root/Leaf-${BRANCH//\//-}"  # Replace slashes with dashes to avoid directory issues
 
-            [ -d "$REPO_DIR/.git" ] && cd "$REPO_DIR" && git fetch origin && git checkout "$BRANCH" && git reset --hard "origin/$BRANCH" || git clone --branch "$BRANCH" https://github.com/Winds-Studio/Leaf "$REPO_DIR"
+            [ -d "$REPO_DIR/.git" ] && cd "$REPO_DIR" && git fetch origin && git checkout "$BRANCH" && git reset --hard "origin/$BRANCH" || git clone --branch "$BRANCH" https://github.com/rizer001/Reactive "$REPO_DIR"
 
             # Proceed to insert the build into the API
             cd ~/api/cli
             node insertBuild.js \
               --projectName leaf \
-              --projectFriendlyName "Leaf" \
+              --projectFriendlyName "Reactive" \
               --version ${{ env.MC_VERSION }} \
               --versionGroupName ${{ env.MC_VERSION }} \
               --versionName ${{ env.MC_VERSION }} \

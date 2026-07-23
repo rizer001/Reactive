@@ -9,7 +9,7 @@ jobs:
   fetch_update:
     name: Fetch Update
     # Run workflow only on main repo
-    if: ${{ github.repository == 'Winds-Studio/Leaf' }}
+    if: ${{ github.repository == 'rizer001/Reactive' }}
     runs-on: ubuntu-latest
     outputs:
       update_needed: ${{ steps.checkUpdate.outputs.update_needed }}
@@ -19,7 +19,7 @@ jobs:
       - name: Checkout Leaf repository
         uses: actions/checkout@v6
         with:
-          path: 'Leaf'
+          path: 
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout Paper repository
@@ -67,7 +67,7 @@ jobs:
       - name: Checkout Leaf repository
         uses: actions/checkout@v6
         with:
-          path: 'Leaf'
+          path: 
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update paperCommit in Leaf
